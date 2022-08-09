@@ -1,14 +1,35 @@
 ---
+const title = "DealView"
+const description = "Vous créez, nous vendons!"
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="fr">
+
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+        <meta name="title" content={title}>
+        <meta name="description" content={description}>
+
+        <meta property="og:type" content="website">
+        <meta property="og:url" content={Astro.url.href}>
+        <meta property="og:title" content={title}>
+        <meta property="og:description" content={description}>
+
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content={Astro.url.href}>
+        <meta property="twitter:title" content={title}>
+        <meta property="twitter:description" content={description}>
+</head>
+
+<body class="flex justify-center items-center flex-col h-screen">
+        <h1 class="text-6xl font-bold">DealView</h1>
+        <p>Vous créez, nous vendons!</p>
+        <span class="mt-10 text-gray-500">Site en construction par <a target="_blank"
+                        class="text-teal-800 underline hover:no-underline"
+                        href="https://loak.studio">loak.studio</a>.</span>
+</body>
+
 </html>
