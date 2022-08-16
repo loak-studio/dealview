@@ -1,0 +1,62 @@
+---
+
+import { getStory } from "../../../utils/storyblok";
+import Chevron from "../atoms/Chevron.astro";
+import NavLink from "../atoms/NavLink.astro";
+import Button from "../atoms/Button.astro";
+import DealView from "../atoms/DealView.astro";
+import NavDropDownLink from "../atoms/NavDropDownLink.astro";
+import Hamburger from "../atoms/Hamburger.astro";
+const { stories } = await getStory('offers');
+---
+
+<header class="py-5 shadow-sm px-5">
+    <div class="max-w-6xl flex items-center justify-between mx-auto">
+        <a title="Retour à l'index" href="/">
+            <DealView />
+        </a>
+        <nav id="nav"
+            class="fixed w-screen h-screen bg-white left-0 top-0 md:static transition-all md:h-auto md:w-auto -translate-x-full md:-translate-x-0">
+            <ul
+                class="flex p-4 md:p-0 flex-col justify-center h-full md:h-auto md:flex-row gap-7 items-start md:items-center">
+                <NavLink href="/">
+                    Accueil
+                </NavLink>
+
+                <li class="group relative">
+                    <a class="flex items-center gap-1 py-2.5 px-3.5 hover:bg-gray-200 rounded-md transition"
+                        href="/nos-offres/">
+                        Nos offres
+                        <span class="hidden md:block">
+                            <Chevron />
+                        </span>
+                    </a>
+                    <ul
+                        class=" md:min-w-[200px] ml-4 md:ml-0 md:scale-0 md:group-hover:scale-100 scale-x md:-z-10 md:group-hover:z-0 space-y-1 md:opacity-0 transition md:bg-gray-50 rounded-md md:shadow-lg p-2 right-0 md:absolute group-hover:opacity-100">
+                        {stories.map((offer)=>
+                        <NavDropDownLink href={"/nos-offres/" + offer.slug}>
+                            {offer.name}
+                        </NavDropDownLink>
+                        )}
+                        <hr>
+                        <NavDropDownLink href={"/nos-offres/"}>
+                            Comparatif
+                        </NavDropDownLink>
+                    </ul>
+                </li>
+                <NavLink href="/">
+                    Blog
+                </NavLink>
+                <li>
+                    <Button href="/nous-contacter/">
+                        <span class="text-white">Contact</span>
+                    </Button>
+                </li>
+            </ul>
+        </nav>
+        <button class="block md:hidden hover:bg-gray-200 p-2 rounded-md z-30" id="hamburger">
+            <Hamburger />
+        </button>
+    </div>
+
+</header>

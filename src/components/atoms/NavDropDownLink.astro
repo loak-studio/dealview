@@ -1,0 +1,9 @@
+---
+const { href, offer } = Astro.props
+---
+
+<li>
+    <a class="p-2 block hover:bg-gray-100 rounded-md transition" href={href}>
+        <slot />
+    </a>
+</li>

@@ -1,0 +1,14 @@
+---
+import Footer from "../components/organisms/Footer.astro";
+import Navbar from "../components/organisms/Navbar.astro";
+import BaseLayout from "./BaseLayout.astro"
+
+---
+
+<BaseLayout>
+    <Navbar />
+    <div class="flex-1 space-y-36">
+        <slot />
+    </div>
+    <Footer />
+</BaseLayout>

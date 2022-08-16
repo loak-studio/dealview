@@ -1,0 +1,23 @@
+---
+import Button from "../atoms/Button.astro";
+import ButtonOutline from "../atoms/ButtonOutline.astro";
+
+const { component } = Astro.props
+console.log(component)
+---
+
+<div class={"p-[2px] flex flex-col rounded-md " + (component.highlighted ? 'bg-gradient-to-r from-primary to-secondary' : 'bg-gray-200')}>
+    <div class={" bg-gray-200 rounded-md p-5"}>
+    <span class="block text-center mb-5">{component.name}</span>
+    <span
+        class="text-center block text-gray-900 text-3xl border-gray-300 border-b-2 pb-10">{component.content.price}€/mois</span>
+    <div class="flex justify-center mt-10">
+        {component.highlighted &&
+        <Button href="#">Découvrir</Button>
+        }
+        {!component.highlighted &&
+        <ButtonOutline href="#">Découvrir</ButtonOutline>
+        }
+    </div>
+</div>
+</div>

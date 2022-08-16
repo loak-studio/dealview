@@ -1,0 +1,24 @@
+---
+import SectionTitle from "./moleculs/SectionTitle.astro";
+import Hero from "./organisms/Hero.astro";
+import Offers from "./organisms/Offers.astro";
+
+const { component } = Astro.props
+---
+
+{()=>{
+switch (component.component) {
+case 'Hero':
+return (
+<Hero component={component} />)
+case 'sectionTitle':
+return (
+<SectionTitle component={component} />)
+case 'offers':
+return (
+<Offers component={component} />)
+default:
+return <p>Component {component.component}</p>
+break;
+}
+}}

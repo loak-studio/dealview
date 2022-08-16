@@ -1,0 +1,36 @@
+---
+import "../style/fonts.css"
+const title = "DealView"
+const description = "Vous créez, nous vendons!"
+---
+
+<html lang="fr">
+
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+        <meta name="title" content={title}>
+        <meta name="description" content={description}>
+
+        <meta property="og:type" content="website">
+        <meta property="og:url" content={Astro.url.href}>
+        <meta property="og:title" content={title}>
+        <meta property="og:description" content={description}>
+
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content={Astro.url.href}>
+        <meta property="twitter:title" content={title}>
+        <meta property="twitter:description" content={description}>
+        <script defer data-domain="dealview.be" src="https://plausible.io/js/plausible.js"></script>
+</head>
+
+<body class="flex flex-col min-h-screen font-main">
+        <slot />
+        <script>
+                import '../scripts/app.js';
+        </script>
+</body>
+
+</html>

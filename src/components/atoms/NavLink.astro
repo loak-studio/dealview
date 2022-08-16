@@ -1,0 +1,9 @@
+---
+const { href } = Astro.props
+---
+
+<li>
+    <a class="flex py-2.5 px-3.5 hover:bg-gray-200 rounded-md transition" href={href}>
+        <slot />
+    </a>
+</li>

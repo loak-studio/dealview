@@ -14,5 +14,10 @@
     "astro": "^1.0.0-rc.8",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
+  },
+  "dependencies": {
+    "@astrojs/markdown-component": "^1.0.1",
+    "@storyblok/js": "^1.7.2",
+    "axios": "^0.27.2"
   }
 }
