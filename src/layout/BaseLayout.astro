@@ -1,7 +1,8 @@
 ---
 import "../style/app.css"
-const title = "DealView"
+const title = "DealView, vous créez, nous vendons"
 const description = "Vous créez, nous vendons!"
+const { meta } = Astro.props
 ---
 
 <html lang="fr">
@@ -10,7 +11,7 @@ const description = "Vous créez, nous vendons!"
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <title>{title}</title>
+        <title>{meta && meta.title ? meta.title + ' - DealView' : title}</title>
         <meta name="title" content={title}>
         <meta name="description" content={description}>
 
