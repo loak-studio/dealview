@@ -1,7 +1,7 @@
 ---
 import Button from "../atoms/Button.astro";
 import ButtonOutline from "../atoms/ButtonOutline.astro";
-
+import Markdown from '@astrojs/markdown-component';
 const { component } = Astro.props
 ---
 
@@ -11,6 +11,12 @@ const { component } = Astro.props
     <div class="border-gray-300 border-b-2 pb-10 flex justify-center items-end">
         <span class="text-center text-gray-900 text-2xl lg:text-3xl ">{component.content.price}€</span>
         <span class="text-lg">/mois</span>
+    </div>
+    <div class="pt-10 h-52 overflow-hidden text-stone-900 space-y-5 relative">
+        <Markdown>{component.content.content}</Markdown>
+        <div class=" bg-gradient-to-t from-gray-100 w-full to-transparent h-20 absolute bottom-0">
+
+        </div>
     </div>
     <div class="flex justify-center mt-10">
         {component.content.highlighted &&

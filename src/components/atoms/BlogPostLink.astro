@@ -1,0 +1,13 @@
+---
+const { post } = Astro.props
+
+---
+
+<div class="relative bg-gray-100 hover:opacity-70 transition rounded-md overflow-hidden">
+    <figure class=" aspect-video">
+        <img class="w-full h-full object-cover" src={post.content.image.filename} alt="" />
+    </figure>
+    <h3 class="pt-8 px-8 pb-4 text-gray-700">{post.name}</h3>
+    <a class="text-right block text-gray-500 pb-8 before:inset-0 before:absolute pr-8" href={"/blog/" + post.slug}>Lire
+        plus</a>
+</div>

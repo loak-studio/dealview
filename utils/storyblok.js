@@ -35,6 +35,11 @@ const getComments = async () => {
   return stories;
 };
 
+const getArticles = async () => {
+  const { stories } = await getStory("posts");
+  return stories;
+};
+
 export {
   storyblokApi,
   getStory,
@@ -42,4 +47,5 @@ export {
   getContactLink,
   getTeam,
   getComments,
+  getArticles,
 };
