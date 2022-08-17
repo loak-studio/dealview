@@ -1,0 +1,16 @@
+---
+import { getTeam } from "../../../utils/storyblok";
+import TeamMember from "../atoms/TeamMember.astro";
+
+const team = await getTeam()
+---
+
+<section class="bg-gray-800 text-white py-14">
+    <h2 class="text-center text-3xl mb-8">Notre équipe</h2>
+    <p class="text-center mb-14">Nous vous présentons l'équipe fondatrice !</p>
+    <div class="grid px-4 lg:px-0 sm:grid-cols-2 gap-4 lg:gap-10 max-w-6xl w-full mx-auto">
+        {team.map(member=>
+        <TeamMember member={member} />
+        )}
+    </div>
+</section>

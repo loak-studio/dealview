@@ -15,4 +15,31 @@ const getStory = async (path = "") => {
   return await data.json();
 };
 
-export { storyblokApi, getStory };
+const getOffersSortedByPrice = async () => {
+  const { stories } = await getStory("offers");
+  return stories.sort((a, b) => a.content.price - b.content.price);
+};
+
+const getContactLink = async () => {
+  const { stories } = await getStory("links");
+  return stories[0].content.contact;
+};
+
+const getTeam = async () => {
+  const { stories } = await getStory("team");
+  return stories;
+};
+
+const getComments = async () => {
+  const { stories } = await getStory("comments");
+  return stories;
+};
+
+export {
+  storyblokApi,
+  getStory,
+  getOffersSortedByPrice,
+  getContactLink,
+  getTeam,
+  getComments,
+};

@@ -1,8 +1,8 @@
 ---
-const { href } = Astro.props
+const { href = "#", target = "_self" } = Astro.props
 ---
 
-<a href={href}
+<a href={href} target={target}
     class="bg-gradient-to-r text-white text-xl px-4 py-2 inline-block transition rounded-md hover:opacity-80 from-primary to-secondary">
     <slot />
 </a>

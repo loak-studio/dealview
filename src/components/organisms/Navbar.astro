@@ -1,13 +1,14 @@
 ---
 
-import { getStory } from "../../../utils/storyblok";
+import { getContactLink, getOffersSortedByPrice, getStory } from "../../../utils/storyblok";
 import Chevron from "../atoms/Chevron.astro";
 import NavLink from "../atoms/NavLink.astro";
 import Button from "../atoms/Button.astro";
 import DealView from "../atoms/DealView.astro";
 import NavDropDownLink from "../atoms/NavDropDownLink.astro";
 import Hamburger from "../atoms/Hamburger.astro";
-const { stories } = await getStory('offers');
+const offers = await getOffersSortedByPrice()
+const contactLink = await getContactLink()
 ---
 
 <header class="py-5 shadow-sm px-5">
@@ -33,7 +34,7 @@ const { stories } = await getStory('offers');
                     </a>
                     <ul
                         class=" md:min-w-[200px] ml-4 md:ml-0 md:scale-0 md:group-hover:scale-100 scale-x md:-z-10 md:group-hover:z-0 space-y-1 md:opacity-0 transition md:bg-gray-50 rounded-md md:shadow-lg p-2 right-0 md:absolute group-hover:opacity-100">
-                        {stories.map((offer)=>
+                        {offers.map((offer)=>
                         <NavDropDownLink href={"/nos-offres/" + offer.slug}>
                             {offer.name}
                         </NavDropDownLink>
@@ -44,11 +45,11 @@ const { stories } = await getStory('offers');
                         </NavDropDownLink>
                     </ul>
                 </li>
-                <NavLink href="/">
+                <NavLink href="/blog/">
                     Blog
                 </NavLink>
                 <li>
-                    <Button href="/nous-contacter/">
+                    <Button target="_blank" href={contactLink}>
                         <span class="text-white">Contact</span>
                     </Button>
                 </li>

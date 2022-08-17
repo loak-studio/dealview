@@ -1,15 +1,20 @@
 ---
-import { getStory } from "../../utils/storyblok"
+import Comments from "../components/moleculs/Comments.astro";
+import LastArticles from "../components/moleculs/LastArticles.astro";
+import SectionTitle from "../components/moleculs/SectionTitle.astro";
+import Team from "../components/moleculs/Team.astro";
 import Hero from "../components/organisms/Hero.astro";
-import Render from "../components/Render.astro";
+import Offers from "../components/organisms/Offers.astro";
 import PageLayout from "../layout/PageLayout.astro";
-const { stories } = await getStory('pages/home')
 
 ---
 
 <PageLayout>
-
-        {stories[0].content.body.map(component=>
-        <Render component={component} />
-        )}
+        <Hero />
+        <SectionTitle title="Que proposons-nous chez DealView ?"
+                text="Notre objectif est de collaborer avec vous pour vous permettre de commercialiser votre solution. Nous pouvons construire l’entièreté de votre process commercial et le prendre en charge, de la prospection au closing en fonction de vos besoins. " />
+        <Offers />
+        <Team />
+        <Comments />
+        <LastArticles />
 </PageLayout>

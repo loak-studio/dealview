@@ -1,4 +1,6 @@
 ---
+import Signature from "../components/atoms/footer/Signature.astro";
+import BookACall from "../components/organisms/BookACall.astro";
 import Footer from "../components/organisms/Footer.astro";
 import Navbar from "../components/organisms/Navbar.astro";
 import BaseLayout from "./BaseLayout.astro"
@@ -10,5 +12,7 @@ import BaseLayout from "./BaseLayout.astro"
     <div class="flex-1 space-y-36">
         <slot />
     </div>
+    <BookACall />
     <Footer />
+    <Signature />
 </BaseLayout>

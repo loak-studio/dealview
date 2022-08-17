@@ -1,14 +1,10 @@
 ---
-
-import Markdown from '@astrojs/markdown-component';
-const { component } = Astro.props
+const { title, text, black = true } = Astro.props
 ---
 
-<section class={"md:text-center px-4 md:px-0 py-14 " + (component.black ?'bg-gray-800 text-white' :'') }>
-    <h2 class=" text-3xl font-medium mb-7">{component.title}</h2>
+<section class={"md:text-center px-4 md:px-0 py-14 " + (black ?'bg-gray-800 text-white' :'') }>
+    <h2 class=" text-3xl font-medium mb-7">{title}</h2>
     <div class=" max-w-3xl mx-auto">
-        <Markdown>
-            {component.text}
-        </Markdown>
+        {text}
     </div>
 </section>

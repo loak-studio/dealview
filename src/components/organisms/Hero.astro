@@ -1,25 +1,27 @@
 ---
-const { component } = Astro.props
 import Markdown from '@astrojs/markdown-component';
+import { getContactLink } from '../../../utils/storyblok';
 import Button from '../atoms/Button.astro';
 import ButtonOutline from '../atoms/ButtonOutline.astro';
+const contactLink = await getContactLink()
 ---
 
-<div class="flex flex-col items-center lg:flex-row md:gap-24 mx-auto w-full max-w-5xl mt-24">
+<div class="flex flex-col items-center lg:flex-row md:gap-24 mx-auto w-full max-w-6xl mt-24">
     <div class="lg:max-w-md px-4 lg:px-0 space-y-7">
         <div class="font-medium">
             <Markdown>
-                {component.title}
+                # Nous aidons les **start-up** et les **PME** dans leur **croissance** en leur construisant une
+                **stratégie commerciale** BtoB efficace et sur mesure.
             </Markdown>
         </div>
         <span class="block text-gray-600 text-xl">
-            {component.slogan}
+            Vous créez, nous vendons !
         </span>
         <div class="space-x-4">
-            <Button href="#">
+            <Button target="_blank" href={contactLink}>
                 Nous contacter
             </Button>
-            <ButtonOutline href="#">
+            <ButtonOutline href={"/nos-offres/"}>
                 Voir nos offres
             </ButtonOutline>
         </div>

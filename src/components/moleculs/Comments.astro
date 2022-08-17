@@ -1,0 +1,24 @@
+---
+import { getComments } from "../../../utils/storyblok";
+
+const comments = await getComments()
+---
+
+<section class="mt-36 flex flex-col items-center gap-8 px-4 md:px-0">
+    <figure>
+        <img class="rounded-full w-12" src={comments[0].content.picture.filename} alt="">
+    </figure>
+    <blockquote class="max-w-[64ch] italic text-xl text-center">
+        "{comments[0].content.comment}""
+    </blockquote>
+    <div class="flex flex-col items-center gap-2">
+        <span class=" font-medium">{comments[0].name}</span>
+        <span>{comments[0].content.title}</span>
+    </div>
+    <ul>
+        {comments.map(comment=>
+        <li>
+            <button class="w-4 h-4 bg-secondary rounded-full"></button>
+        </li>)}
+    </ul>
+</section>
