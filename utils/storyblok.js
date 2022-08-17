@@ -10,7 +10,7 @@ const getStory = async (path = "") => {
     "https://api.storyblok.com/v1/cdn/stories" +
       `?&token=${
         import.meta.env.TOKEN
-      }&starts_with=${path}&resolve_relations=writer&cv=${new Date()}`
+      }&starts_with=${path}&resolve_relations=author&cv=${new Date()}`
   );
   return await data.json();
 };

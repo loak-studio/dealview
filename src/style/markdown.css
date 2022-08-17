@@ -1,0 +1,18 @@
+.markdown h1 {
+  @apply text-3xl font-medium;
+}
+.markdown h2 {
+  @apply text-2xl font-medium;
+}
+.markdown h3 {
+  @apply text-xl font-medium;
+}
+.markdown ul {
+  @apply list-disc ml-4;
+}
+.markdown strong {
+  @apply font-medium;
+}
+.markdown p img {
+  @apply rounded-md;
+}
