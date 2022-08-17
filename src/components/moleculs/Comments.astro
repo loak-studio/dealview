@@ -4,21 +4,26 @@ import { getComments } from "../../../utils/storyblok";
 const comments = await getComments()
 ---
 
-<section class="mt-36 flex flex-col items-center gap-8 px-4 md:px-0">
-    <figure>
-        <img class="rounded-full w-12" src={comments[0].content.picture.filename} alt="">
-    </figure>
-    <blockquote class="max-w-[64ch] italic text-xl text-center">
-        "{comments[0].content.comment}""
-    </blockquote>
-    <div class="flex flex-col items-center gap-2">
-        <span class=" font-medium">{comments[0].name}</span>
-        <span>{comments[0].content.title}</span>
-    </div>
-    <ul>
-        {comments.map(comment=>
+<div>
+    <section id="comment" class="mt-36 transition flex flex-col items-center gap-8 px-4 md:px-0">
+        <figure>
+            <img class="rounded-full w-12" src={comments[0].content.picture.filename} alt="">
+        </figure>
+        <blockquote class="transition max-w-[64ch] italic text-xl text-center">
+            "{comments[0].content.comment}"
+        </blockquote>
+        <div class="flex flex-col items-center gap-2">
+            <span id="name" class=" font-medium">{comments[0].name}</span>
+            <span id="title">{comments[0].content.title}</span>
+        </div>
+
+    </section>
+    <ul class="flex justify-center gap-6 mt-6">
+        {comments.map((comment,index)=>
         <li>
-            <button class="w-4 h-4 bg-secondary rounded-full"></button>
+            <button data-comment-name={comment.name} data-comment-title={comment.content.title}
+                data-comment-blockquote={comment.content.comment} data-comment-img={comment.content.picture.filename}
+                data-comment-button class={"w-4 h-4 rounded-full hover:bg-secondary hover:opacity-60 transition " + (index == 0 ? 'bg-secondary' : 'bg-gray-200')}></button>
         </li>)}
     </ul>
-</section>
+</div>
