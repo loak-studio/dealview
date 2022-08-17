@@ -1,0 +1,25 @@
+---
+import { getArticles } from "../../../utils/storyblok";
+import BlogPostLink from "../../components/atoms/BlogPostLink.astro";
+import SectionTitle from "../../components/moleculs/SectionTitle.astro";
+import PageLayout from "../../layout/PageLayout.astro"
+const posts = await getArticles();
+---
+
+<PageLayout>
+    <div class="px-4 md:px-0">
+        <h1 class="font-title text-4xl text-center mt-14">Blog</h1>
+        <p class="max-w-[64ch] mx-auto text-center text-gray-500 mt-8">Tous nos articles pour mieux comprendre notre
+            Lorem
+            ipsum
+            dolor sit amet,
+            consectetur
+            adipiscing elit. Ut
+            pretium
+            pellentesque turpis vitae mattis. Cras rutrum turpis non urna mattis maximus.</p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mt-14 w-full mx-auto gap-4">
+            {posts.map((post,index)=>
+            <BlogPostLink key={index} post={post} />)}
+        </div>
+    </div>
+</PageLayout>
