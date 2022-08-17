@@ -9,10 +9,14 @@ const contactLink = await getContactLink()
 <div class="flex flex-col items-center lg:flex-row md:gap-24 mx-auto w-full max-w-6xl mt-24">
     <div class="lg:max-w-md px-4 lg:px-0 space-y-7">
         <div class="font-medium">
-            <Markdown>
-                # Nous aidons les **start-up** et les **PME** dans leur **croissance** en leur construisant une
-                **stratégie commerciale** BtoB efficace et sur mesure.
-            </Markdown>
+
+            <h1 class="text-4xl leading-[48px] font-title">
+                Nous aidons les <span class="text-primary font-medium">start-up</span> et les <span
+                    class="text-primary font-medium">PME</span> dans leur
+                <span class="text-primary font-medium">croissance</span> en leur construisant une
+                <span class="text-primary font-medium">
+                    stratégie commerciale</span> BtoB efficace et sur mesure.
+            </h1>
         </div>
         <span class="block text-gray-600 text-xl">
             Vous créez, nous vendons !
@@ -1291,13 +1295,3 @@ const contactLink = await getContactLink()
 
     </div>
 </div>
-
-<style>
-    strong {
-        @apply text-primary font-medium;
-    }
-
-    h1 {
-        @apply text-4xl leading-[48px] font-title;
-    }
-</style>
