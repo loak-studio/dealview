@@ -2,6 +2,7 @@
 import Button from "../atoms/Button.astro";
 import ButtonOutline from "../atoms/ButtonOutline.astro";
 import Markdown from "@astrojs/markdown-component";
+import { marked } from "marked";
 const { component, isPage = false } = Astro.props;
 ---
 
@@ -40,9 +41,16 @@ const { component, isPage = false } = Astro.props;
         <div
             class={"pt-10 text-stone-900 markdown space-y-5 relative" +
             " " +
-            (isPage ? "" : "h-72 overflow-hidden")}
+            (isPage ? "" : "overflow-hidden")}
         >
-            <Markdown>{component.content.content}</Markdown>
+            <ul>
+                {
+                    component.content.content
+                        .split("-")
+                        .slice(1, 5)
+                        .map((list) => <li>{list.trim()}</li>)
+                }
+            </ul>
             {
                 !isPage && (
                     <div class="bg-gradient-to-t from-gray-100 w-full to-transparent h-20 absolute bottom-0" />
