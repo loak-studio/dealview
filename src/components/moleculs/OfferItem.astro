@@ -45,10 +45,15 @@ const { component, isPage = false } = Astro.props;
         >
             <ul>
                 {
-                    component.content.content
-                        .split("-")
-                        .slice(1, 5)
-                        .map((list) => <li>{list.trim()}</li>)
+                    !isPage
+                        ? component.content.content
+                              .split("-")
+                              .slice(1, 5)
+                              .map((list) => <li>{list.trim()}</li>)
+                        : component.content.content
+                              .split("-")
+                              .slice(1, -1)
+                              .map((list) => <li>{list.trim()}</li>)
                 }
             </ul>
             {
