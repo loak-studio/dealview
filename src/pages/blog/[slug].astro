@@ -48,8 +48,12 @@ const date = new Date(post.created_at);
         </div>
     </article>
     <section class="py-12 my-12 bg-gray-800 text-white px-4 md:px-0">
-        <figure class="w-20 mx-auto rounded-md overflow-hidden">
-            <img src={post.content.author.content.picture.filename} alt="" />
+        <figure class="w-20 aspect-square mx-auto rounded-md overflow-hidden">
+            <img
+                class="w-full h-full object-cover"
+                src={post.content.author.content.picture.filename}
+                alt=""
+            />
         </figure>
         <h2 class="text-center mt-10 mb-4 text-3xl">
             {post.content.author.name}

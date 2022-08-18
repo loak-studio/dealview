@@ -19,7 +19,7 @@ const stories = await getOffersSortedByPrice();
             {stories.map((story) => <OfferItem component={story} />)}
         </div>
         <div class="flex justify-center mt-14">
-            <ButtonOutline href="/nos-offres/"
+            <ButtonOutline href={"/nos-offres/"}
                 >Voir le comparatif
             </ButtonOutline>
         </div>

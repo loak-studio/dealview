@@ -6,7 +6,7 @@ const { component, isPage = false } = Astro.props;
 ---
 
 <div
-    class={"p-[2px] flex flex-col rounded-md h-fit sticky top-10 " +
+    class={"p-[2px] flex flex-col rounded-md h-fit " +
     (component.content.highlighted
         ? "bg-gradient-to-r from-primary to-secondary"
         : "bg-gray-100")}
@@ -25,18 +25,22 @@ const { component, isPage = false } = Astro.props;
             isPage && (
                 <div class="flex justify-center mt-10">
                     {component.content.highlighted && (
-                        <Button href="#">Découvrir</Button>
+                        <Button href={"/nos-offres/" + component.slug}>
+                            Découvrir
+                        </Button>
                     )}
                     {!component.content.highlighted && (
-                        <ButtonOutline href="#">Découvrir</ButtonOutline>
+                        <ButtonOutline href={"/nos-offres/" + component.slug}>
+                            Découvrir
+                        </ButtonOutline>
                     )}
                 </div>
             )
         }
         <div
-            class={"pt-10 text-stone-900 space-y-5 relative" +
+            class={"pt-10 text-stone-900 markdown space-y-5 relative" +
             " " +
-            (isPage ? "" : "h-52 overflow-hidden")}
+            (isPage ? "" : "h-72 overflow-hidden")}
         >
             <Markdown>{component.content.content}</Markdown>
             {
@@ -49,10 +53,14 @@ const { component, isPage = false } = Astro.props;
             !isPage && (
                 <div class="flex justify-center mt-10">
                     {component.content.highlighted && (
-                        <Button href="#">Découvrir</Button>
+                        <Button href={"/nos-offres/" + component.slug}>
+                            Découvrir
+                        </Button>
                     )}
                     {!component.content.highlighted && (
-                        <ButtonOutline href="#">Découvrir</ButtonOutline>
+                        <ButtonOutline href={"/nos-offres/" + component.slug}>
+                            Découvrir
+                        </ButtonOutline>
                     )}
                 </div>
             )

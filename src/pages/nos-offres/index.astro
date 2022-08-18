@@ -15,7 +15,7 @@ const stories = await getOffersSortedByPrice();
         maximus.
     </p>
     <div
-        class="max-w-6xl mx-auto grid md:grid-cols-4 gap-5 mt-14 mb-16 md:mb-36"
+        class="max-w-6xl px-4 md:px-0 mx-auto grid md:grid-cols-4 gap-5 mt-14 mb-16 md:mb-36"
     >
         {stories.map((story) => <OfferItem isPage={true} component={story} />)}
     </div>

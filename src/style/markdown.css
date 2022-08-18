@@ -8,7 +8,7 @@
   @apply text-xl font-medium;
 }
 .markdown ul {
-  @apply list-disc ml-4;
+  @apply list-disc ml-4 space-y-3;
 }
 .markdown strong {
   @apply font-medium;
