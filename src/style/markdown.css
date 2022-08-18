@@ -16,3 +16,6 @@
 .markdown p img {
   @apply rounded-md;
 }
+.markdown {
+  @apply leading-loose;
+}

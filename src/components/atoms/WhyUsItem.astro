@@ -1,0 +1,17 @@
+---
+const { title, text } = Astro.props;
+---
+
+<div class="flex gap-4">
+    <div
+        class="w-12 shrink-0 h-12 bg-gradient-to-t from-primary to-secondary rounded-md flex justify-center items-center"
+    >
+        <slot />
+    </div>
+    <div>
+        <h3 class="text-lg font-medium">{title}</h3>
+        <p>
+            {text}
+        </p>
+    </div>
+</div>

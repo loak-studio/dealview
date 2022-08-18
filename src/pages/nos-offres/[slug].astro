@@ -1,0 +1,55 @@
+---
+import PageLayout from "../../layout/PageLayout.astro";
+import { getOffersSortedByPrice } from "../../../utils/storyblok";
+import Markdown from "@astrojs/markdown-component";
+import WhyUs from "../../components/organisms/WhyUs.astro";
+export async function getStaticPaths() {
+    const data = await getOffersSortedByPrice();
+
+    return data.map((offer) => {
+        return {
+            params: { slug: offer.slug },
+            props: {
+                offer,
+            },
+        };
+    });
+}
+
+const { offer } = Astro.props;
+console.log(offer.content.pageContent);
+---
+
+<PageLayout meta={{ title: "Offre " + offer.name }}>
+    <article class="px-4 xl:px-0">
+        <h1 class="font-title text-4xl text-center mt-14">{offer.name}</h1>
+        <div class="text-secondary text-xl flex justify-center mt-2.5 mb-8">
+            <span>{offer.content.price}€</span>
+            <span>/mois</span>
+        </div>
+        <span class="text-center block text-gray-500 mb-14"
+            >{offer.content.tagline}
+        </span>
+        {
+            offer.content.pageContent.map((item) => (
+                <div
+                    class={
+                        "flex items-start md:items-center flex-col justify-between max-w-6xl mx-auto mb-14 " +
+                        (item.switchImage
+                            ? "md:flex-row-reverse"
+                            : "md:flex-row")
+                    }
+                >
+                    <figure class="md:max-w-[300px] w-full">
+                        <img src={item.image.filename} alt="" />
+                    </figure>
+                    <div class="md:w-1/2 mt-14 md:mt-0">
+                        <h2 class="text-3xl font-medium mb-5">{item.title}</h2>
+                        <Markdown>{item.body}</Markdown>
+                    </div>
+                </div>
+            ))
+        }
+    </article>
+    <WhyUs />
+</PageLayout>

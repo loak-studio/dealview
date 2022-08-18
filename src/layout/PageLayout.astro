@@ -3,13 +3,13 @@ import Signature from "../components/atoms/footer/Signature.astro";
 import BookACall from "../components/organisms/BookACall.astro";
 import Footer from "../components/organisms/Footer.astro";
 import Navbar from "../components/organisms/Navbar.astro";
-import BaseLayout from "./BaseLayout.astro"
-const { meta } = Astro.props
+import BaseLayout from "./BaseLayout.astro";
+const { meta } = Astro.props;
 ---
 
 <BaseLayout meta={meta}>
     <Navbar />
-    <div class="flex-1 space-y-16 md:space-y-36">
+    <div class="flex-1">
         <slot />
     </div>
     <BookACall />

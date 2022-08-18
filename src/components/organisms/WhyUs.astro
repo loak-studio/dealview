@@ -1,0 +1,23 @@
+---
+import WhyUsItem from "../atoms/WhyUsItem.astro";
+---
+
+<section class="bg-gray-200 py-14 px-4 xl:px-0">
+    <div class="max-w-7xl w-full mx-auto">
+        <h2 class="text-3xl font-medium">Pourquoi nous ?</h2>
+        <p class="text-lg max-w-[64ch] mt-5 mb-14">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pretium
+            pellentesque turpis vitae mattis. Cras rutrum turpis non urna mattis
+            maximus. Quisque condimentum sit amet purus vitae vehicula.
+        </p>
+        <div class="grid lg:grid-cols-3 gap-14">
+            <WhyUsItem
+                title="Lorem"
+                text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pretium pellentesque turpis vitae mattis. Cras rutrum turpis."
+                >👋
+            </WhyUsItem>
+            <WhyUsItem title="Lorem" text="Ipsum">🍃</WhyUsItem>
+            <WhyUsItem title="Lorem" text="Ipsum">🦕</WhyUsItem>
+        </div>
+    </div>
+</section>

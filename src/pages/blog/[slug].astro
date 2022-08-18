@@ -1,10 +1,10 @@
 ---
 import { getArticles } from "../../../utils/storyblok";
 import PageLayout from "../../layout/PageLayout.astro";
-import Markdown from '@astrojs/markdown-component';
+import Markdown from "@astrojs/markdown-component";
 import BlogPostLink from "../../components/atoms/BlogPostLink.astro";
 export async function getStaticPaths() {
-    const data = await getArticles()
+    const data = await getArticles();
 
     return data.map((post, index) => {
         return {
@@ -12,48 +12,65 @@ export async function getStaticPaths() {
             props: {
                 post,
                 nextPost: data[index + 1],
-                prevPost: data[index - 1]
+                prevPost: data[index - 1],
             },
         };
     });
 }
 
-const { post, nextPost, prevPost } = Astro.props
-console.log(nextPost?.name, prevPost?.name)
-const options = { year: 'numeric', month: 'long', day: 'numeric' };
-const date = new Date(post.created_at)
+const { post, nextPost, prevPost } = Astro.props;
+const options = { year: "numeric", month: "long", day: "numeric" };
+const date = new Date(post.created_at);
 ---
 
-<PageLayout meta={{title:post.name}}>
+<PageLayout meta={{ title: post.name, image: post.content.image.filename }}>
     <article>
-        <h1 class="my-12 block text-center text-4xl text-gray-900">{post.name}</h1>
-        <span class="text-center block text-gray-500">{post.content.author.name} le
-            {date.toLocaleDateString("fr-FR", options)}</span>
-        <figure class="aspect-video max-w-4xl w-full mx-auto mt-14 rounded-md overflow-hidden">
-            <img class="h-full w-full object-cover" src={post.content.image.filename} alt="">
+        <h1 class="my-12 block text-center text-4xl text-gray-900">
+            {post.name}
+        </h1>
+        <span class="text-center block text-gray-500"
+            >{post.content.author.name} le
+            {date.toLocaleDateString("fr-FR", options)}
+        </span>
+        <figure
+            class="aspect-video max-w-4xl w-full mx-auto mt-14 rounded-md overflow-hidden"
+        >
+            <img
+                class="h-full w-full object-cover"
+                src={post.content.image.filename}
+                alt=""
+            />
         </figure>
-        <div class="max-w-[64ch] px-4 md:px-0 mx-auto w-full mt-14 markdown space-y-7">
+        <div
+            class="max-w-[64ch] px-4 md:px-0 mx-auto w-full mt-14 markdown space-y-7"
+        >
             <Markdown content={post.content.content} />
         </div>
     </article>
-    <section class="py-12 bg-gray-800 text-white px-4 md:px-0">
-        <figure class=" w-20 mx-auto rounded-md overflow-hidden">
-            <img src={post.content.author.content.picture.filename} alt="">
+    <section class="py-12 my-12 bg-gray-800 text-white px-4 md:px-0">
+        <figure class="w-20 mx-auto rounded-md overflow-hidden">
+            <img src={post.content.author.content.picture.filename} alt="" />
         </figure>
-        <h2 class="text-center mt-10 mb-4 text-3xl">{post.content.author.name}</h2>
-        <p class="max-w-[64ch] mx-auto w-full">{post.content.author.content.description}</p>
+        <h2 class="text-center mt-10 mb-4 text-3xl">
+            {post.content.author.name}
+        </h2>
+        <p class="max-w-[64ch] mx-auto w-full">
+            {post.content.author.content.description}
+        </p>
     </section>
-    <section class="px-4 md:px-0">
+    <section class="px-4 md:px-0 mb-16 md:mb-36">
         <h3 class="text-center text-3xl font-medium">
-            {(prevPost && nextPost) ?
-            "Autres articles qui pourraient vous plaire" :
-            "Autre article qui pourrait vous plaire"}
+            {
+                prevPost && nextPost
+                    ? "Autres articles qui pourraient vous plaire"
+                    : "Autre article qui pourrait vous plaire"
+            }
         </h3>
-        <div class=" max-w-2xl mx-auto gap-4 md:gap-20 flex mt-14">
-            {prevPost &&
-            <BlogPostLink post={prevPost} />}
-            {nextPost &&
-            <BlogPostLink post={nextPost} />}
+        <div
+            class="max-w-2xl mx-auto gap-4 md:gap-20 flex flex-col md:flex-row mt-14"
+        >
+            {prevPost && <BlogPostLink post={prevPost} />}
+            {nextPost && <BlogPostLink post={nextPost} />}
         </div>
     </section>
 </PageLayout>

@@ -6,15 +6,18 @@ import Team from "../components/moleculs/Team.astro";
 import Hero from "../components/organisms/Hero.astro";
 import Offers from "../components/organisms/Offers.astro";
 import PageLayout from "../layout/PageLayout.astro";
-
 ---
 
 <PageLayout>
-        <Hero />
-        <SectionTitle title="Que proposons-nous chez DealView ?"
-                text="Notre objectif est de collaborer avec vous pour vous permettre de commercialiser votre solution. Nous pouvons construire l’entièreté de votre process commercial et le prendre en charge, de la prospection au closing en fonction de vos besoins. " />
-        <Offers />
-        <Team />
-        <Comments />
-        <LastArticles />
+        <div class="space-y-16 md:space-y-36">
+                <Hero />
+                <SectionTitle
+                        title="Que proposons-nous chez DealView ?"
+                        text="Notre objectif est de collaborer avec vous pour vous permettre de commercialiser votre solution. Nous pouvons construire l’entièreté de votre process commercial et le prendre en charge, de la prospection au closing en fonction de vos besoins. "
+                />
+                <Offers />
+                <Team />
+                <Comments />
+                <LastArticles />
+        </div>
 </PageLayout>

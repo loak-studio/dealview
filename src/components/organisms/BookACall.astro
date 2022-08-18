@@ -3,17 +3,24 @@ import { getContactLink } from "../../../utils/storyblok";
 import ButtonOutline from "../atoms/ButtonOutline.astro";
 import Icon from "../atoms/Icon.astro";
 import ArrowsBackground from "../atoms/illustrations/ArrowsBackground.astro";
-import Handshake from "../atoms/illustrations/Handshake.astro"
+import Handshake from "../atoms/illustrations/Handshake.astro";
 const link = await getContactLink();
 ---
 
-<div class="relative bg-gradient-to-r mt-16 md:mt-36 from-primary to-secondary">
-    <div class="z-10  relative max-w-6xl flex flex-col px-4 lg:px-0 items-center lg:flex-row w-full mx-auto py-14">
+<div class="relative bg-gradient-to-r from-primary to-secondary">
+    <div
+        class="z-10 relative max-w-6xl flex flex-col px-4 lg:px-0 items-center lg:flex-row w-full mx-auto py-14"
+    >
         <Handshake />
-        <div class="flex-1 flex mt-4 lg:mt-0 items-center flex-col space-y-8 justify-center">
-            <h2 class=" text-3xl text-white">Construisons ensemble votre stratégie commerciale BtoB</h2>
+        <div
+            class="flex-1 flex mt-4 lg:mt-0 items-center flex-col space-y-8 justify-center"
+        >
+            <h2 class="text-3xl text-white">
+                Construisons ensemble votre stratégie commerciale BtoB
+            </h2>
             <p class="text-white">
-                Il ne reste plus qu'à prévoir un rendez-vous et de passer à l'action !
+                Il ne reste plus qu'à prévoir un rendez-vous et de passer à
+                l'action !
             </p>
             <ButtonOutline target="_blank" href={link}>
                 Prendez rendez-vous

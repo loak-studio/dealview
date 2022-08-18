@@ -2,32 +2,31 @@
 import { getArticles } from "../../../utils/storyblok";
 import BlogPostLink from "../atoms/BlogPostLink.astro";
 import ButtonOutline from "../atoms/ButtonOutline.astro";
-import Hive from "../atoms/Hive.astro"
-const posts = await getArticles()
+import Hive from "../atoms/Hive.astro";
+const posts = await getArticles();
 ---
 
-<section class="relative  px-4 lg:px-0">
+<section class="relative px-4 lg:px-0">
     <div class="absolute -left-8 -top-44 -z-10">
         <Hive />
     </div>
     <h2 class="md:text-center font-medium text-3xl mb-8">Nos articles</h2>
-    <p class="md:text-center max-w-[64ch] mx-auto">Et si vous ne désirez pas travailler avec nous, vous pouvez tout de
-        meme
-        lire nos articles
-        dans lesquels nous
-        vous partageons notre expertise. </p>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mt-14 w-full mx-auto gap-4">
-        {[...Array(4)].map((e,index)=> {
-        if(posts[index]){
-        return(
-        <BlogPostLink key={index} post={posts[index]} />)
+    <p class="md:text-center max-w-[64ch] mx-auto">
+        Et si vous ne désirez pas travailler avec nous, vous pouvez tout de meme
+        lire nos articles dans lesquels nous vous partageons notre expertise.
+    </p>
+    <div
+        class="grid sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mt-14 w-full mx-auto gap-4"
+    >
+        {
+            [...Array(4)].map((e, index) => {
+                if (posts[index]) {
+                    return <BlogPostLink key={index} post={posts[index]} />;
+                }
+            })
         }
-        }
-        )}
     </div>
-    <div class="flex justify-center mt-14 items-center w-full">
-        <ButtonOutline href="/blog/">
-            Voir tous les articles
-        </ButtonOutline>
+    <div class="flex justify-center mt-14 items-center w-full mb-16 md:mb-36">
+        <ButtonOutline href="/blog/">Voir tous les articles</ButtonOutline>
     </div>
 </section>
