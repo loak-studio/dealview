@@ -1,44 +1,60 @@
 ---
-import { getOffersSortedByPrice, getStory } from "../../../utils/storyblok";
+import {
+    getOffersSortedByPrice,
+    getSocialLinks,
+    getStory,
+} from "../../../utils/storyblok";
 import DealView from "../atoms/DealView.astro";
 import FooterColTitle from "../atoms/footer/FooterColTitle.astro";
 import FooterLinkItem from "../atoms/footer/FooterLinkItem.astro";
 const stories = await getOffersSortedByPrice();
+const links = await getSocialLinks();
 ---
 
-<footer class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-0 px-4 xl:px-0 max-w-6xl w-full mx-auto py-14">
+<footer
+    class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-0 px-4 xl:px-0 max-w-6xl w-full mx-auto py-14"
+>
     <div>
         <DealView />
     </div>
-    <div>
-        <FooterColTitle>Entreprise</FooterColTitle>
-        <nav>
-            <ul class=" space-y-2.5 mt-2.5">
-                <FooterLinkItem href="/">A propos</FooterLinkItem>
-                <FooterLinkItem href="/">L'équipe</FooterLinkItem>
-                <FooterLinkItem href="/">Le blog</FooterLinkItem>
-            </ul>
-        </nav>
-    </div>
+
     <div>
         <FooterColTitle>Offres</FooterColTitle>
         <nav>
-            <ul class=" space-y-2.5 mt-2.5">
-                {stories.map(story=>
-                <FooterLinkItem href={"/nos-offres/" + story.slug}>{story.name}</FooterLinkItem>
-                )}
+            <ul class="space-y-2.5 mt-2.5">
+                {
+                    stories.map((story) => (
+                        <FooterLinkItem href={"/nos-offres/" + story.slug}>
+                            {story.name}
+                        </FooterLinkItem>
+                    ))
+                }
             </ul>
         </nav>
     </div>
     <div>
         <FooterColTitle>Legal</FooterColTitle>
         <nav>
-            <ul class=" space-y-2.5 mt-2.5">
+            <ul class="space-y-2.5 mt-2.5">
                 <FooterLinkItem href="/">Mentions légales</FooterLinkItem>
-                <FooterLinkItem href="/">Politique de confidentialié</FooterLinkItem>
-                <FooterLinkItem href="/">Condition générales de vente</FooterLinkItem>
+                <FooterLinkItem href="/"
+                    >Politique de confidentialié
+                </FooterLinkItem>
             </ul>
         </nav>
     </div>
-
+    <div>
+        <FooterColTitle>Rejoignez-nous</FooterColTitle>
+        <nav>
+            <ul class="space-y-2.5 mt-2.5">
+                {
+                    links.map((link) => (
+                        <FooterLinkItem href={link.href}>
+                            {link.label}
+                        </FooterLinkItem>
+                    ))
+                }
+            </ul>
+        </nav>
+    </div>
 </footer>

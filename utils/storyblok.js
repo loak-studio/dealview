@@ -25,6 +25,11 @@ const getContactLink = async () => {
   return stories[0].content.contact;
 };
 
+const getSocialLinks = async () => {
+  const { stories } = await getStory("links");
+  return stories[0].content.socialLinks;
+};
+
 const getTeam = async () => {
   const { stories } = await getStory("team");
   return stories;
@@ -48,4 +53,5 @@ export {
   getTeam,
   getComments,
   getArticles,
+  getSocialLinks,
 };
