@@ -2,7 +2,7 @@
 import "../style/app.css";
 const title = "DealView, vous créez, nous vendons";
 const description = "Vous créez, nous vendons!";
-const image = "#";
+const image = Astro.url.origin + "/share.png";
 const { meta } = Astro.props;
 ---
 
@@ -29,7 +29,11 @@ const { meta } = Astro.props;
                         property="og:image"
                         content={meta && meta.image ? meta.image : image}
                 />
-
+                <link
+                        href="/favicon.ico"
+                        rel="shortcut icon"
+                        type="image/x-icon"
+                />
                 <meta property="twitter:card" content="summary_large_image" />
                 <meta property="twitter:url" content={Astro.url.href} />
                 <meta property="twitter:title" content={title} />
