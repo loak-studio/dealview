@@ -17,7 +17,6 @@ export async function getStaticPaths() {
 }
 
 const { offer } = Astro.props;
-console.log(offer.content.pageContent);
 ---
 
 <PageLayout meta={{ title: "Offre " + offer.name }}>
