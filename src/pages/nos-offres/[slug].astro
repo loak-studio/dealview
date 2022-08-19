@@ -21,7 +21,9 @@ const { offer } = Astro.props;
 
 <PageLayout meta={{ title: "Offre " + offer.name }}>
     <article class="px-4 xl:px-0">
-        <h1 class="font-title text-4xl text-center mt-14">{offer.name}</h1>
+        <h1 class="font-title text-4xl text-center mt-14 capitalize">
+            {offer.name}
+        </h1>
         <div class="text-secondary text-xl flex justify-center mt-2.5 mb-8">
             <span>{offer.content.price}€</span>
             <span>/mois</span>

@@ -1,8 +1,6 @@
 ---
 import Button from "../atoms/Button.astro";
 import ButtonOutline from "../atoms/ButtonOutline.astro";
-import Markdown from "@astrojs/markdown-component";
-import { marked } from "marked";
 const { component, isPage = false } = Astro.props;
 ---
 
@@ -52,8 +50,9 @@ const { component, isPage = false } = Astro.props;
                               .map((list) => <li>{list.trim()}</li>)
                         : component.content.content
                               .split("-")
-                              .slice(1, -1)
-                              .map((list) => <li>{list.trim()}</li>)
+                              .map((list) =>
+                                  list != "" ? <li>{list.trim()}</li> : ""
+                              )
                 }
             </ul>
             {

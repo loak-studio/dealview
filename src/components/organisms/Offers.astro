@@ -1,7 +1,6 @@
 ---
 import { getOffersSortedByPrice } from "../../../utils/storyblok";
 import ButtonOutline from "../atoms/ButtonOutline.astro";
-import Hive from "../atoms/Hive.astro";
 import OfferItem from "../moleculs/OfferItem.astro";
 const stories = await getOffersSortedByPrice();
 ---
@@ -12,7 +11,7 @@ const stories = await getOffersSortedByPrice();
     >
         <h2 class="md:text-center text-3xl font-medium mb-7">Nos Offres</h2>
         <span class="block md:text-center"
-            >Comparez nos différentes offres et choisissez-celle qui vous
+            >Comparez nos différentes offres et choisissez celle qui vous
             convient le mieux !
         </span>
         <div class="grid md:grid-cols-4 gap-5 mt-14">
