@@ -1,2 +1,2 @@
-import "./menu.js";
-import "./comments";
+import './menu.js'
+import './comments'
