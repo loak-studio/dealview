@@ -11,8 +11,8 @@
   },
   "devDependencies": {
     "@astrojs/sitemap": "^1.0.0",
-    "@astrojs/tailwind": "^0.2.5",
-    "astro": "^1.0.0-rc.8",
+    "@astrojs/tailwind": "^2.1.1",
+    "astro": "^1.6.1",
     "eslint": "^8.0.1",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.25.2",
