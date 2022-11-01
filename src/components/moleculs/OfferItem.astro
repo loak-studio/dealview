@@ -11,15 +11,15 @@ const { component, isPage = false } = Astro.props;
             : "bg-gray-100")}
 >
     <div class={" bg-gray-100 rounded-[0.300rem] p-5"}>
-        <span class="block text-center mb-2 md:mb-5">{component.name}</span>
-        <div
+        <span class="block text-2xl font-semibold text-center mb-2 md:mb-5">{component.name}</span>
+        <!-- <div
             class="border-gray-300 border-b-2 pb-10 flex justify-center items-end"
         >
             <span class="text-center text-gray-900 text-2xl lg:text-3xl"
                 >{component.content.price}€
             </span>
             <span class="text-lg">/mois</span>
-        </div>
+        </div> -->
         {
             isPage && (
                 <div class="flex justify-center mt-10">
